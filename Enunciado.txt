@@ -1,0 +1,37 @@
+Validación Avanzada de Formularios con JavaScript Vanilla
+
+
+Se entregan 5 formularios diferentes en archivos HTML separados, usarán el formulario asignado en clases.
+
+Cada formulario contiene 15 o más campos que deberás validar con JavaScript vanilla.
+
+
+Reglas de la tarea:
+
+
+No puedes usar jQuery ni librerías externas, solo JS nativo.
+
+Debes crear un archivo validaciones.js que detecte el formulario actual.
+
+Aplica validaciones como:
+
+Solo letras.
+
+Solo números.
+
+Cantidad mínima/máxima de caracteres.
+
+Formatos específicos (email, teléfono, contraseña).
+
+Validación de fechas (no menores que hoy, rango válido).
+
+Validación de horas (ej: horario laboral).
+
+Validación de expresiones regulares (ej: matrícula, código postal).
+
+
+
+Usa clases de Bootstrap (is-valid, is-invalid, invalid-feedback).
+
+Al enviar el formulario correctamente validado, limpia los campos y muestra un alert de éxito.
+

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario 5 - Inscripción a Gimnasio</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body {
+      padding: 20px;
+    }
+
+    .form-container {
+      max-width: 900px;
+      margin: auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="form-container">
+    <h2 class="mb-4">Inscripción a Gimnasio</h2>
+
+    <form>
+      <!-- 1. Nombre -->
+      <div class="mb-3">
+        <label class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="nombre" placeholder="Solo letras" />
+      </div>
+
+      <!-- 2. Apellido -->
+      <div class="mb-3">
+        <label class="form-label">Apellido</label>
+        <input type="text" class="form-control" id="apellido" placeholder="Solo letras" />
+      </div>
+
+      <!-- 3. Email -->
+      <div class="mb-3">
+        <label class="form-label">Correo Electrónico</label>
+        <input type="email" class="form-control" id="email" />
+      </div>
+
+      <!-- 4. Teléfono -->
+      <div class="mb-3">
+        <label class="form-label">Teléfono</label>
+        <input type="text" class="form-control" id="telefono" placeholder="10 dígitos" />
+      </div>
+
+      <!-- 5. Fecha de nacimiento -->
+      <div class="mb-3">
+        <label class="form-label">Fecha de Nacimiento</label>
+        <input type="date" class="form-control" id="nacimiento" />
+      </div>
+
+      <!-- 6. Sexo -->
+      <div class="mb-3">
+        <label class="form-label">Sexo</label>
+        <select class="form-control" id="sexo">
+          <option value="">Seleccione</option>
+          <option>Masculino</option>
+          <option>Femenino</option>
+          <option>Otro</option>
+        </select>
+      </div>
+
+      <!-- 7. Peso -->
+      <div class="mb-3">
+        <label class="form-label">Peso (kg)</label>
+        <input type="number" class="form-control" id="peso" placeholder="Mayor a 30" />
+      </div>
+
+      <!-- 8. Estatura -->
+      <div class="mb-3">
+        <label class="form-label">Estatura (cm)</label>
+        <input type="number" class="form-control" id="estatura" placeholder="Mayor a 100" />
+      </div>
+
+      <!-- 9. Plan de entrenamiento -->
+      <div class="mb-3">
+        <label class="form-label">Plan de Entrenamiento</label>
+        <select class="form-control" id="plan">
+          <option value="">Seleccione</option>
+          <option>Musculación</option>
+          <option>Cardio</option>
+          <option>Crossfit</option>
+        </select>
+      </div>
+
+      <!-- 10. Nivel de experiencia -->
+      <div class="mb-3">
+        <label class="form-label">Nivel de Experiencia</label>
+        <select class="form-control" id="nivel">
+          <option value="">Seleccione</option>
+          <option>Principiante</option>
+          <option>Intermedio</option>
+          <option>Avanzado</option>
+        </select>
+      </div>
+
+      <!-- 11. Dirección -->
+      <div class="mb-3">
+        <label class="form-label">Dirección</label>
+        <input type="text" class="form-control" id="direccion" placeholder="Mínimo 10 caracteres" />
+      </div>
+
+      <!-- 12. Código postal -->
+      <div class="mb-3">
+        <label class="form-label">Código Postal</label>
+        <input type="text" class="form-control" id="postal" placeholder="5 dígitos" />
+      </div>
+
+      <!-- 13. Contacto de emergencia -->
+      <div class="mb-3">
+        <label class="form-label">Contacto de Emergencia</label>
+        <input type="text" class="form-control" id="emergencia" placeholder="Solo letras" />
+      </div>
+
+      <!-- 14. Teléfono de emergencia -->
+      <div class="mb-3">
+        <label class="form-label">Teléfono de Emergencia</label>
+        <input type="text" class="form-control" id="telEmergencia" placeholder="10 dígitos" />
+      </div>
+
+      <!-- 15. Aceptar términos -->
+      <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="terminos" />
+        <label class="form-check-label" for="terminos">Acepto los términos y condiciones</label>
+      </div>
+
+      <button type="submit" class="btn btn-danger">Inscribirse</button>
+    </form>
+  </div>
+  <script src="js/validaciones.js"></script>
+</body>
+
+</html>
