@@ -1,13 +1,15 @@
 // validaciones.js
 
 document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector("form"); 
+    const form = document.querySelector("form");
     if (!form) return;
 
     function validarSeleccion(valor, opcionesValidas) {
         return (opcionesValidas.includes(valor))
     }
-
+    function Text(valor) {
+        return /^[0-9-a-zA-ZÁÉÍÓÚÑáéíóúñ\s]+$/.test(valor.trim());
+    }
     function soloLetras(valor) {
         return /^[a-zA-ZÁÉÍÓÚÑáéíóúñ\s]+$/.test(valor.trim());
     }
@@ -21,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function validarTelefono(valor) {
-        return /^[0-9]{10}$/.test(valor.trim()); 
+        return /^[0-9]{10}$/.test(valor.trim());
     }
 
     function validarFecha(valor) {
@@ -32,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function validarCodigoPostal(valor) {
-        return /^[0-9]{5}$/.test(valor.trim()); 
+        return /^[0-9]{5}$/.test(valor.trim());
     }
 
     // Mostrar validación
@@ -64,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const apellido = form.querySelector("#apellido");
         mostrarValidacion(apellido, soloLetras(apellido.value), "Solo letras");
         if (!soloLetras(apellido.value)) valido = false;
-        
+
         const email = form.querySelector("#email");
         mostrarValidacion(email, validarEmail(email.value), "Formato de email inválido");
         if (!validarEmail(email.value)) valido = false;
@@ -81,11 +83,11 @@ document.addEventListener("DOMContentLoaded", function () {
         const telefono = form.querySelector("#telefono");
         mostrarValidacion(telefono, validarTelefono(telefono.value), "Teléfono inválido (10 dígitos)");
         if (!validarTelefono(telefono.value)) valido = false;
-        
+
         const peso = form.querySelector("#peso");
         mostrarValidacion(peso, soloNumeros(peso.value) && peso.value > 30, "Debes ser mayor de peso");
         if (!(soloNumeros(peso.value) && peso.value > 30)) valido = false;
-        
+
         const estatura = form.querySelector("#estatura");
         mostrarValidacion(estatura, soloNumeros(estatura.value) && estatura.value > 100, "Debes ser mayor de estatura");
         if (!(soloNumeros(estatura.value) && estatura.value > 100)) valido = false;
@@ -97,12 +99,12 @@ document.addEventListener("DOMContentLoaded", function () {
         const nivel = form.querySelector("#nivel");
         mostrarValidacion(nivel, validarSeleccion(nivel.value, ["Principiante", "Intermedio", "Avanzado"]), "Selección inválida");
         if (!validarSeleccion(nivel.value, ["Principiante", "Intermedio", "Avanzado"])) valido = false;
-        
+
         // Limitarlo a un mínimo de 10 carácteres
         const direccion = form.querySelector("#direccion");
-        mostrarValidacion(direccion, soloLetras(direccion.value) && direccion.value.length > 10, "Solo letras");
-        if (!soloLetras(direccion.value) && direccion.value.length > 10) valido = false;
-       
+        mostrarValidacion(direccion, Text(direccion.value) && direccion.value.length > 10, "Mínimo 10 caracteres");
+        if (!Text(direccion.value) && direccion.value.length > 10) valido = false;
+
         const cp = form.querySelector("#postal");
         mostrarValidacion(cp, validarCodigoPostal(cp.value), "Código postal inválido");
         if (!validarCodigoPostal(cp.value)) valido = false;
@@ -115,8 +117,9 @@ document.addEventListener("DOMContentLoaded", function () {
         mostrarValidacion(telEmergencia, validarTelefono(telEmergencia.value), "Teléfono inválido (10 dígitos)");
         if (!validarTelefono(telEmergencia.value)) valido = false;
 
-        // Falta el CheckBox
-        
+        const terminos = form.querySelector("#terminos");
+        mostrarValidacion(terminos, terminos.checked, "Debes aceptar los términos y condiciones");
+        if (!terminos.checked) valido = false;
 
         if (valido) {
             alert("Formulario enviado con éxito ✅");
